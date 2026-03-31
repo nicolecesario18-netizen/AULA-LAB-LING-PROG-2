@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }// evento errado 
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }// evento errado 
+
+        private void txtnome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string Numeros = "0123456789";
+            bool temNumero = Numeros.Contains(e.KeyChar);
+
+            if (temNumero)
+            {
+                MessageBox.Show("nome não pode ter números");
+                SendKeys.Send("{BACKSPACE}");
+            }
+        }
+
+
+        private void txtendereço_TextChanged(object sender, EventArgs e)
+        {
+            
+        } // evento errado 
+
+        private void txtEmail_Validated(object sender, EventArgs e)
+        {
+            if(txtEmail.Text=="")
+            {
+                MessageBox.Show("E-mail inválido");
+                txtEmail.Focus();
+            }
+        }
+
+        private void txtendereço_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtendereço.Text == "")
+            {
+                MessageBox.Show("Endereço inválido");
+                e.Cancel = true;
+            }
+        }
+
+        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar== (char)13)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true; //desativa o beep
+            }
+        }
+
+        private void mskbxData_Validated(object sender, EventArgs e)
+        {
+            DateTime dtNasc;
+            if (!DateTime.TryParse(mskbxData.Text, out dtNasc))
+            {
+                MessageBox.Show("Data Inválida");
+                mskbxData.Focus();
+            }
+            else
+                MessageBox.Show("A data é: " +
+                    dtNasc.ToShortDateString());
+
+        }
+    }
+    
+}
