@@ -1,0 +1,57 @@
+namespace WinFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exerciciof2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<frmExercicio2>().Count() > 0)
+            {
+                Application.OpenForms["frmExercicio2"].BringToFront();
+
+
+            }
+            else
+            {
+                frmExercicio2 Obj2 = new frmExercicio2();
+                Obj2.MdiParent = this;
+                Obj2.WindowState = FormWindowState.Maximized;
+                Obj2.Show();
+            }
+        }
+
+        private void exerciciof1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exerciciof3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (Application.OpenForms.OfType<fmrExercicio3>().Count() > 0)
+            {
+                Application.OpenForms["fmrExercicio3"].BringToFront();
+
+
+            }
+            else
+            {
+                fmrExercicio3 Obj2 = new frmExercicio2();
+                Obj2.MdiParent = this;
+                Obj2.WindowState = FormWindowState.Maximized;
+                Obj2.Show();
+            }
+
+        }
+    }
+
+}
